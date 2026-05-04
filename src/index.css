@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+
+  --color-brand-purple-light: #7B2FF7;
+  --color-brand-purple: #5A1DBA;
+  --color-brand-purple-dark: #3A0CA3;
+
+  --color-brand-gold: #F4A100;
+  --color-brand-gold-light: #FFC300;
+
+  --color-surface-white: #FFFFFF;
+  --color-surface-grey: #F5F5F7;
+  --color-text-dark: #1A1A1A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans antialiased bg-surface-white text-text-dark;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-brand-purple-dark) 0%, var(--color-brand-purple) 50%, var(--color-brand-purple-light) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-brand-purple-light) 0%, var(--color-brand-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
