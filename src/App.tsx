@@ -22,6 +22,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import BookingForm from './components/BookingForm';
 
 const colors = {
   purple: {
@@ -68,24 +69,24 @@ export default function App() {
 
   const services = [
     {
-      id: 'washing',
-      title: 'Washing',
-      description: 'Expert cleaning using premium detergents and high-tech machines to preserve fabric quality.',
+      id: 'full-laundry',
+      title: 'Full Laundry',
+      description: 'Complete care including expert washing, drying, and neat folding for all your daily wear and linens.',
       icon: <WashingMachine className="w-8 h-8 text-brand-gold" />,
       image: 'https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=800'
     },
     {
-      id: 'ironing',
-      title: 'Ironing & Folding',
-      description: 'Professional steam ironing and expert folding for that crisp, fresh look every time.',
+      id: 'starching-ironing',
+      title: 'Starching & Ironing',
+      description: 'Give your traditional wears and corporate shirts that perfect crisp finish with our premium starching and professional steam ironing.',
       icon: <Waves className="w-8 h-8 text-brand-gold" />,
       image: 'https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&fit=crop&q=80&w=800'
     },
     {
-      id: 'delivery',
-      title: 'Pickup & Delivery',
-      description: 'Convenient doorstep service. We pick up your dirty clothes and return them clean and fresh.',
-      icon: <Truck className="w-8 h-8 text-brand-gold" />,
+      id: 'ironing-only',
+      title: 'Ironing Only',
+      description: 'Already washed your clothes? Let us handle the tough part with expert steam ironing for a polished, wrinkle-free look.',
+      icon: <Waves className="w-8 h-8 text-brand-gold" />,
       image: '/src/assets/images/regenerated_image_1777868553467.png'
     }
   ];
@@ -537,10 +538,21 @@ export default function App() {
 
         {/* Contact Section */}
         <section id="contact" className="py-24 md:py-32 container max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-          <div className="flex flex-col lg:flex-row gap-16">
-            <div className="w-full lg:w-1/2">
-              <span className="text-brand-purple font-bold tracking-widest uppercase text-sm mb-4 block">Get In Touch</span>
-              <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-8">We're here to help</h2>
+          <div className="flex flex-col gap-16">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="text-brand-purple font-bold tracking-widest uppercase text-sm mb-4 block">Reservation</span>
+              <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-8">Secure your laundry slot</h2>
+              <p className="text-gray-500 italic">Book your pickup in less than 2 minutes. Our team will contact you shortly after confirmation.</p>
+            </div>
+
+            <div className="w-full">
+              <BookingForm />
+            </div>
+
+            <div className="flex flex-col lg:flex-row gap-16 pt-16 border-t border-gray-100">
+              <div className="w-full lg:w-1/2">
+                <span className="text-brand-purple font-bold tracking-widest uppercase text-sm mb-4 block">Get In Touch</span>
+                <h2 className="text-3xl md:text-5xl font-display font-extrabold mb-8">We're here to help</h2>
               
               <div className="space-y-8 mb-12">
                 <div className="flex items-start gap-6">
@@ -598,36 +610,32 @@ export default function App() {
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2 p-10 bg-surface-grey rounded-[40px] shadow-inner border border-white">
-              <h3 className="text-2xl font-display font-bold mb-8">Send us a message</h3>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold ml-1">Full Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full p-4 bg-white rounded-2xl border-none shadow-sm focus:ring-2 focus:ring-brand-purple transition-all outline-none" />
+            {/* Address & Social Info */}
+            <div className="w-full lg:w-1/2 space-y-12">
+              <div>
+                <h3 className="text-2xl font-display font-bold mb-6">Contact Information</h3>
+                <p className="text-gray-500 mb-8 leading-relaxed">Have questions or special requests? Reach out to us through any of these channels or visit our shop in Eleyele.</p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                  <div className="p-6 bg-surface-grey rounded-3xl">
+                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-brand-purple mb-4 shadow-sm">
+                      <Clock size={20} />
+                    </div>
+                    <h4 className="font-bold mb-1">Working Hours</h4>
+                    <p className="text-sm text-gray-500 italic">8:00 AM – 6:00 PM</p>
+                    <p className="text-xs text-brand-purple font-bold mt-1">Available 7 days</p>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold ml-1">Phone Number</label>
-                    <input type="tel" placeholder="0812..." className="w-full p-4 bg-white rounded-2xl border-none shadow-sm focus:ring-2 focus:ring-brand-purple transition-all outline-none" />
+                  <div className="p-6 bg-brand-gold/5 rounded-3xl">
+                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-brand-gold mb-4 shadow-sm">
+                      <Star size={20} />
+                    </div>
+                    <h4 className="font-bold mb-1">Premium Choice</h4>
+                    <p className="text-sm text-gray-500 italic">Best in Oyo State</p>
+                    <p className="text-xs text-brand-gold font-bold mt-1">Rated 4.9/5</p>
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold ml-1">What service do you need?</label>
-                  <select className="w-full p-4 bg-white rounded-2xl border-none shadow-sm focus:ring-2 focus:ring-brand-purple transition-all outline-none appearance-none">
-                    <option>Washing</option>
-                    <option>Ironing & Folding</option>
-                    <option>Full Cleaning Package</option>
-                    <option>Pickup & Delivery</option>
-                  </select>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold ml-1">Message</label>
-                  <textarea rows={4} placeholder="Tell us about your laundry needs..." className="w-full p-4 bg-white rounded-2xl border-none shadow-sm focus:ring-2 focus:ring-brand-purple transition-all outline-none resize-none"></textarea>
-                </div>
-                <button className="w-full py-4 bg-brand-purple hover:bg-brand-purple-light text-white font-bold rounded-2xl shadow-xl shadow-brand-purple/20 transition-all active:scale-95">
-                  Send Message
-                </button>
-              </form>
+              </div>
+            </div>
             </div>
           </div>
         </section>
@@ -678,10 +686,10 @@ export default function App() {
                 Services
               </h4>
               <ul className="space-y-4 text-white/60">
-                <li><button className="hover:text-brand-gold transition-colors">Washing</button></li>
-                <li><button className="hover:text-brand-gold transition-colors">Ironing</button></li>
-                <li><button className="hover:text-brand-gold transition-colors">Folding</button></li>
-                <li><button className="hover:text-brand-gold transition-colors">Express Delivery</button></li>
+                <li><button className="hover:text-brand-gold transition-colors">Full Laundry</button></li>
+                <li><button className="hover:text-brand-gold transition-colors">Starching & Ironing</button></li>
+                <li><button className="hover:text-brand-gold transition-colors">Ironing Only</button></li>
+                <li><button className="hover:text-brand-gold transition-colors">Express Pickup</button></li>
               </ul>
             </div>
 
